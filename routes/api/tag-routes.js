@@ -11,6 +11,12 @@ router.get('/', (req, res) => {
       model: Product,
       through: ProductTag
     }]
+  }).then(dbTag => {
+    res.json(dbTag)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(404).json(err);
   })
 });
 
